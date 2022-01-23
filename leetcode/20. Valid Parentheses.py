@@ -6,7 +6,7 @@ class Solution:
         stack = []
 
         for i, p in enumerate(s):
-            if i == 0:
+            if len(stack) == 0:
                 if p in parentheses_close:
                     return False
                 else:
@@ -23,5 +23,7 @@ class Solution:
         return True if len(stack) == 0 else False
 
 
+# ([)]        => False
+# "(){}}{"    => True
 s = Solution()
-print(s.isValid("([)]"))
+print(s.isValid("(){}}{"))
