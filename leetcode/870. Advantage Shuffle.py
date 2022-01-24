@@ -3,25 +3,21 @@ from typing import List
 
 class Solution:
     def advantageCount(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        result = []
-        nums1_cpy = nums1.copy()
-        nums1_cpy.sort()
+        result = [None] * len(nums2)
+        nums1.sort()
 
-        for num2 in nums2:
-            found = False
-            for index, num1 in enumerate(nums1_cpy):
+        for index, num2 in enumerate(nums2):
+            for num1 in nums1:
                 if num1 > num2:
-                    found = True
-                    result.append(num1)
-                    nums1_cpy.pop(index)
+                    result[index] = num1
                     nums1.remove(num1)
                     break
 
-            if not found:
-                nums1_cpy.remove(nums1[-1])
-                result.append(nums1.pop())
+        for index, value in enumerate(result):
+            if value is None:
+                result[index] = nums1.pop(0)
 
-        return result + nums1
+        return result
 
 
 s = Solution()
