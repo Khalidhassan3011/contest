@@ -10,10 +10,13 @@ class Solution:
         return chr(index)
 
     def shiftingLetters(self, s: str, shifts: List[int]) -> str:
-        temp = list(s)
-        for digit_index, digit in enumerate(shifts):
-            for letter_index in range(digit_index+1):
-                temp[letter_index] = self.shift(temp[letter_index], digit)
+        temp = []
+        total = sum(shifts)
+        calculate = 0
+        for index, letter in enumerate(s):
+            temp.append(self.shift(letter, total - calculate))
+            calculate += shifts[index]
+
         return "".join(temp)
 
 
