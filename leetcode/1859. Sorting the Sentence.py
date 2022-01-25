@@ -1,6 +1,6 @@
 class Solution:
     def sortSentence(self, s: str) -> str:
-        words = s.split(" ")
+        words = s.split()
         result = [None] * len(words)
 
         for word in words:
