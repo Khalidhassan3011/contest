@@ -9,11 +9,7 @@ class Solution:
 
     def freqAlphabets(self, s: str) -> str:
         words = re.findall("[0-9]{2}#|\d", s)
-        result = ""
-        for letter in words:
-            result += self.decrypt(letter)
-
-        return result
+        return "".join(self.decrypt(l) for l in words)
 
 
 s = Solution()
