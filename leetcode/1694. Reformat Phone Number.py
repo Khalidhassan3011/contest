@@ -7,6 +7,8 @@ class Solution:
 
         if len(plain_number) % 3 != 1:
             return self.separate(plain_number)
+        elif len(plain_number) == 4:
+            return "-".join([plain_number[-4:-2], plain_number[-2:]])
         else:
             postfix = "-".join([plain_number[-4:-2], plain_number[-2:]])
             return self.separate(plain_number[:-4]) + "-" + postfix
@@ -19,3 +21,8 @@ print(s.reformatNumber(number="123 4-567"))
 print(s.reformatNumber(number="123 4-567") == "123-45-67")
 print(s.reformatNumber(number="123 4-5678"))
 print(s.reformatNumber(number="123 4-5678") == "123-456-78")
+print(s.reformatNumber(number="9964-"))
+print(s.reformatNumber(number="9964") == "99-64")
+
+
+# "9964-" WA
