@@ -29,3 +29,4 @@ print(s.advantageCount(nums1=[5621, 1743, 5532, 3549, 9581], nums2=[913, 9787, 4
 print(s.advantageCount(nums1=[9, 1, 2, 4, 5], nums2=[6, 2, 9, 1, 4]))
 # [9,4,5,2,1] ou
 # [9,4,1,2,5] ex
+# unsolved
