@@ -5,7 +5,10 @@ class Solution:
 
     def reformat(self, word, index) -> str:
         vowels = ["a", "e", "i", "o", "u"]
-        return word + self.postfix(index) if word[0].lower() in vowels else word[1:] + word[0] + self.postfix(index)
+        if word[0].lower() in vowels:
+            return word + self.postfix(index)
+        else:
+            return word[1:] + word[0] + self.postfix(index)
 
     def toGoatLatin(self, sentence: str) -> str:
         return " ".join([self.reformat(v, i) for i, v in enumerate(sentence.split())])
