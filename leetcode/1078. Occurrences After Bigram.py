@@ -4,20 +4,14 @@ from typing import List
 class Solution:
     def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
         words = text.split()
-        first_match_index = words.index(first)
-
         result = []
+        start = 0
+        while start < len(words) - 2:
+            if words[start] == first and words[start + 1] == second:
+                result.append(words[start + 2])
+            start += 1
 
-        for i in range(first_match_index + 1, len(words), 1):
-            if words[i] != second:
-                result.append(words[i])
-                break
-
-        words.reverse()
-        second_match_index = words.index(second)
-        result.append(words[second_match_index - 1])
-
-        return list(dict.fromkeys(result))
+        return result
 
 
 s = Solution()
@@ -32,3 +26,7 @@ print(a == ["we", "rock"])
 a = s.findOcurrences("alice is aa good girl she is a good student", "a", "good")
 print(a)
 print(a == ["student"])
+
+a = s.findOcurrences("jkypmsxd jkypmsxd kcyxdfnoa jkypmsxd kcyxdfnoa jkypmsxd kcyxdfnoa kcyxdfnoa jkypmsxd kcyxdfnoa","kcyxdfnoa", "jkypmsxd")
+print(a)
+print(a == ["kcyxdfnoa", "kcyxdfnoa", "kcyxdfnoa"])
