@@ -17,7 +17,7 @@ class Solution:
         second_match_index = words.index(second)
         result.append(words[second_match_index - 1])
 
-        return result
+        return list(dict.fromkeys(result))
 
 
 s = Solution()
@@ -28,3 +28,7 @@ print(a == ["girl", "student"])
 a = s.findOcurrences(text="we will we will rock you", first="we", second="will")
 print(a)
 print(a == ["we", "rock"])
+
+a = s.findOcurrences("alice is aa good girl she is a good student", "a", "good")
+print(a)
+print(a == ["student"])
