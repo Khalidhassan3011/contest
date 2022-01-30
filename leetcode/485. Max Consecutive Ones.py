@@ -7,24 +7,18 @@ class Solution:
         # or
         result = 0
         count_sub = 0
-        is_zero_start = False
 
         for n in nums:
             if n == 0:
-                if not is_zero_start:
-                    result = max(result, count_sub)
-                    count_sub = 0
-                    is_zero_start = True
+                result = max(result, count_sub)
+                count_sub = 0
             else:
                 count_sub += 1
-                is_zero_start = False
-
 
         return max(result, count_sub)
 
 
 print(Solution().findMaxConsecutiveOnes(nums=[1, 1, 0, 1, 1, 1]))
-print(Solution().findMaxConsecutiveOnes(nums=[0, 0]))
 
 # Wrong Answer
 # Input
