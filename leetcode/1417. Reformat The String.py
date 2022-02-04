@@ -1,5 +1,7 @@
 class Solution:
     def reformat(self, s: str) -> str:
+        if len(s) == 1:
+            return s
         letters = []
         numbers = []
         for i in s:
