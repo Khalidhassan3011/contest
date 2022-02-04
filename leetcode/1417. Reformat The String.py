@@ -15,12 +15,12 @@ class Solution:
         if not letters or not numbers or abs(len_letter - len_numbers > 1):
             return ""
         elif len_numbers > len_letter:
-            for i in range(len_numbers):
+            for i in range(len_letter):
                 result += numbers[i]
                 result += letters[i]
             result += numbers[-1]
         else:
-            for i in range(len_letter):
+            for i in range(len_numbers):
                 result += letters[i]
                 result += numbers[i]
             if len_letter > len_numbers:
@@ -31,4 +31,5 @@ class Solution:
 
 s = Solution()
 print(s.reformat("covid2019"))
+print(s.reformat("j"))
 
