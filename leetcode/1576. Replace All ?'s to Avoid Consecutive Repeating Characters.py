@@ -13,7 +13,7 @@ class Solution:
         for i in range(s_len):
             if s[i] == "?":
                 if i == 0:
-                    result += self.pickLatter("", s[i])
+                    result += self.pickLatter("", s[i + 1])
                 else:
                     result += self.pickLatter(result[-1], s[i + 1] if i != s_len - 1 else "")
             else:
@@ -34,3 +34,7 @@ print(a == "ubvaw")
 a = s.modifyString(s="j?qg??b")
 print(a)
 print(a == "jaqgacb")
+
+a = s.modifyString(s="?a?ub???w?b")
+print(a)
+print(a == "cacubacawab")
