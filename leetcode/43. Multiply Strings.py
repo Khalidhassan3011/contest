@@ -1,8 +1,10 @@
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
+        # Runtime: 73 ms, faster than 58.97% of Python3
         def usingLibrary():
             return str(int(num1) * int(num2))
 
+        # Runtime: 36 ms, faster than 85.13% of Python3
         def normal():
             numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
@@ -17,7 +19,7 @@ class Solution:
             result_multiply = num1_int * num2_int
 
             result_str = ""
-            while result_multiply > 10:
+            while result_multiply >= 10:
                 result_str = numbers[result_multiply % 10] + result_str
                 result_multiply //= 10
 
@@ -32,5 +34,9 @@ s = Solution()
 # print(a == "6")
 
 a = s.multiply(num1="123", num2="456")
+print(a)
+print(a == "56088")
+
+a = s.multiply(num1="140", num2="721")
 print(a)
 print(a == "56088")
