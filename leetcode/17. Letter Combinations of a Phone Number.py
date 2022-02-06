@@ -3,29 +3,23 @@ from typing import List
 
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
-        letter_list = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
-        #                2      3      4      5      6       7      8       9
-
-        result = []
+        letter_list = ["", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+        #               0   1    2      3      4      5      6       7      8       9
 
         if digits == "":
-            return result
+            return []
         elif len(digits) == 1:
-            for l in letter_list[int(digits) - 2]:
-                result.append(l)
+            return list(letter_list[int(digits)])
         else:
-            combinations = []
-            for i in range(len(digits)):
-                for j in range(i + 1, len(digits)):
-                    combinations.append(f"{digits[i]}{digits[j]}")
+            # deque
+            result = [""]
+            for i in digits:  # 23
+                for j in range(len(result)):  # ""
+                    for k in letter_list[int(i)]:  # "abc"
+                        result.append(result[0] + k)
+                    result.pop(0)
 
-            print(combinations)
-            for i in combinations:
-                for j in letter_list[int(i[0]) - 2]:
-                    for k in letter_list[int(i[1]) - 2]:
-                        result.append(f"{j}{k}")
-
-        return result
+            return result
 
 
 s = Solution()
@@ -40,3 +34,8 @@ print(a == [])
 a = s.letterCombinations(digits="2")
 print(a)
 print(a == ["a", "b", "c"])
+
+a = s.letterCombinations(digits="234")
+print(a)
+print(a == ["adg", "adh", "adi", "aeg", "aeh", "aei", "afg", "afh", "afi", "bdg", "bdh", "bdi", "beg", "beh", "bei",
+            "bfg", "bfh", "bfi", "cdg", "cdh", "cdi", "ceg", "ceh", "cei", "cfg", "cfh", "cfi"])
