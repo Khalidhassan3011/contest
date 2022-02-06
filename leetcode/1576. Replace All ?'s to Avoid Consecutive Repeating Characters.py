@@ -10,6 +10,10 @@ class Solution:
     def modifyString(self, s: str) -> str:
         result = ""
         s_len = len(s)
+
+        if s_len == 1 and s == "?":
+            return self.pickLatter("", "")
+
         for i in range(s_len):
             if s[i] == "?":
                 if i == 0:
@@ -38,3 +42,7 @@ print(a == "jaqgacb")
 a = s.modifyString(s="?a?ub???w?b")
 print(a)
 print(a == "cacubacawab")
+
+a = s.modifyString(s="?")
+print(a)
+print(a == "a")
