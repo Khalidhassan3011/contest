@@ -1,8 +1,17 @@
 class Solution:
     def reorderSpaces(self, text: str) -> str:
-        words = text.split()
-        words_len = len(words) - 1
         count_space = text.count(" ")
+        words = text.split()
+        if count_space == 0 or words is None:
+            return text
+
+        words_len = len(words)
+
+        if words_len == 1:
+            return text.lstrip().rstrip() + " " * count_space
+
+        words_len -= 1
+
         space_between_word = count_space // words_len
         end_space = count_space % words_len
 
@@ -17,3 +26,7 @@ print(a == "this   is   a   sentence")
 a = s.reorderSpaces(text=" practice   makes   perfect")
 print(a)
 print(a == "practice   makes   perfect ")
+
+a = s.reorderSpaces(text="a")
+print(a)
+print(a == "a")
