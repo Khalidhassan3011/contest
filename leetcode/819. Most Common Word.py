@@ -13,7 +13,8 @@ class Solution:
         words = filter_paragraph.split()
 
         for b in banned:
-            words.remove(b)
+            if b in words:
+                words.remove(b)
 
         count_duplicate = [words.count(words[i]) for i in range(len(words))]
 
