@@ -32,7 +32,31 @@ In this scenario, how would you change your code?
 
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        return s == "".join(l for l in t if l in s)
+
+        if s == "":
+            return True
+        elif t == "":
+            return False
+
+        result = ""
+        t_len = len(t)
+        t_index = 0
+
+        for l_s in s:
+            find = False
+            while t_index < t_len:
+                if t[t_index] == l_s:
+                    result += l_s
+                    find = True
+                    t_index += 1
+                    break
+
+                t_index += 1
+
+            if not find:
+                break
+
+        return s == result
 
 
 s = Solution()
@@ -53,5 +77,9 @@ print(a)
 print(a == True)
 
 a = s.isSubsequence(s="aab", t="baab")
+print(a)
+print(a == True)
+
+a = s.isSubsequence(s="", t="baab")
 print(a)
 print(a == True)
