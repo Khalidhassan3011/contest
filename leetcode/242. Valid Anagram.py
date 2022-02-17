@@ -29,6 +29,9 @@ from collections import defaultdict
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
+        # Runtime: 82 ms, faster than 31.23% of Python3
+        # return sorted(s) == sorted(t)
+
         count_s = defaultdict(int)
         count_t = defaultdict(int)
 
