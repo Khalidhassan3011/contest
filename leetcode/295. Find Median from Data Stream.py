@@ -53,7 +53,8 @@ class MedianFinder:
             self.count += 1
 
     def findMedian(self) -> float:
-        return self.sum / self.count
+        if self.count > 0:
+            return self.sum / self.count
 
 
 obj = MedianFinder()
