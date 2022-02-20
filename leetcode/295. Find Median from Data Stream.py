@@ -55,6 +55,7 @@ class MedianFinder:
     def findMedian(self) -> float:
         if self.count > 0:
             return self.sum / self.count
+        return 0.0
 
 
 obj = MedianFinder()
