@@ -45,7 +45,7 @@ class Solution:
         min_limit = pow(-2, 31)
         result = dividend / divisor
 
-        if result > max_limit: result = max_limit
+        if result >= max_limit: result = max_limit - 1
         if result < min_limit: result = min_limit
 
         return int(result)
@@ -59,3 +59,7 @@ print(a == 3)
 a = s.divide(dividend=7, divisor=-3)
 print(a)
 print(a == -2)
+
+a = s.divide(dividend=-2147483648, divisor=-1) #2147483648 --> 2147483647
+print(a)
+print(a == 2147483647)
