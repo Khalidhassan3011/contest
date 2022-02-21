@@ -33,10 +33,13 @@ class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         nums_len = len(nums)
 
+        if target < nums[0]: return 0
+        if target > nums[nums_len - 1]: return nums_len
+
         start = 0
         end = nums_len - 1
 
-        while start < end:
+        while start <= end:
             middle = (end + start) // 2
             current_num = nums[middle]
 
@@ -47,7 +50,7 @@ class Solution:
             else:
                 start = middle + 1
 
-        return start + 1
+        return start
 
 
 s = Solution()
@@ -65,5 +68,10 @@ print(a == 4)
 
 # Wrong Answer
 a = s.searchInsert(nums=[1, 3, 5, 6], target=0)  # 1 --> 0
+print(a)
+print(a == 0)
+
+# Wrong Answer
+a = s.searchInsert(nums=[1], target=1)  # 1 --> 0
 print(a)
 print(a == 0)
