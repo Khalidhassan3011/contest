@@ -49,9 +49,18 @@ from typing import List
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
+        last_active_index = 0
+        previous_value = nums[0]
+        for value in nums:
+            if value > previous_value:
+                last_active_index += 1
+                nums[last_active_index] = value
+                previous_value = value
+        return last_active_index + 1
+
         # Runtime: 115 ms, faster than 62.49% of Python3
-        nums[:] = list(dict.fromkeys(nums))
-        return len(nums)
+        # nums[:] = list(dict.fromkeys(nums))
+        # return len(nums)
 
         # Runtime: 169 ms, faster than 24.49% of Python3
         # nums_len = len(nums)
