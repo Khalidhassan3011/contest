@@ -49,12 +49,16 @@ from typing import List
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        # Runtime: 169 ms, faster than 24.49% of Python3
-        nums_len = len(nums)
+        # Runtime: 115 ms, faster than 62.49% of Python3
         nums[:] = list(dict.fromkeys(nums))
-        result = len(nums)
-        nums.extend([None] * (nums_len - result))
-        return result
+        return len(nums)
+
+        # Runtime: 169 ms, faster than 24.49% of Python3
+        # nums_len = len(nums)
+        # nums[:] = list(dict.fromkeys(nums))
+        # result = len(nums)
+        # nums.extend([None] * (nums_len - result))
+        # return result
 
         # Runtime: 152 ms, faster than 35.83% of Python3
         # start = 0
