@@ -49,19 +49,27 @@ from typing import List
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        start = 0
-        end = len(nums)
-        previous_value = None
+        # Runtime: 169 ms, faster than 24.49% of Python3
+        nums_len = len(nums)
+        nums[:] = list(dict.fromkeys(nums))
+        result = len(nums)
+        nums.extend([None] * (nums_len - result))
+        return result
 
-        while start < end:
-            if previous_value is None or previous_value < nums[start]:
-                previous_value = nums[start]
-                start += 1
-            else:
-                nums.pop(start)
-                end -= 1
-
-        return start
+        # Runtime: 152 ms, faster than 35.83% of Python3
+        # start = 0
+        # end = len(nums)
+        # previous_value = None
+        #
+        # while start < end:
+        #     if previous_value is None or previous_value < nums[start]:
+        #         previous_value = nums[start]
+        #         start += 1
+        #     else:
+        #         nums.pop(start)
+        #         end -= 1
+        #
+        # return start
 
 
 s = Solution()
