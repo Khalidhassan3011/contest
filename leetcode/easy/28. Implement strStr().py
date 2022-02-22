@@ -37,7 +37,7 @@ class Solution:
         try:
             return haystack.index(needle)
         except ValueError:
-            return -1 if haystack != "" else 0
+            return 0 if haystack == "" and needle == "" else 0
 
 
 s = Solution()
